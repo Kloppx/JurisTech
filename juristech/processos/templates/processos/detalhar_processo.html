@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalhar Processo{% endblock %}
+
+{% block content %}
+  <h2 style="text-align: center;">Detalhes do Processo</h2>
+
+  <div class="detalhes-processo">
+    <p><strong>ID:</strong> {{ processo.id }}</p>
+    <p><strong>Número do Processo:</strong> {{ processo.numero }}</p>
+    <p><strong>Data de Abertura:</strong> {{ processo.data_abertura|date:"d/m/Y" }}</p>
+    <p><strong>Descrição:</strong> {{ processo.descricao }}</p>
+
+    <a href="{% url 'editar_processo' processo.id %}" class="btn-editar">Editar</a>
+    <a href="{% url 'listar_processos' %}" class="btn-voltar">Voltar para a lista</a>
+  </div>
+{% endblock %}

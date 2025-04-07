@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Página Inicial{% endblock %}
+
+{% block content %}
+    <h2>Bem-vindo, {{ user.username }}!</h2>
+    <p>Esse é o sistema de gestão de processos da Juristech.</p>
+    <p><a href="{% url 'logout' %}">Sair</a></p>
+    <p><a href="{% url 'listar_processos' %}">Ver Processos</a></p>
+{% endblock %}

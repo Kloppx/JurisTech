@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Processo{% endblock %}
+
+{% block content %}
+  <h2 style="text-align: center;">Editar Processo</h2>
+
+  <form method="POST" class="form-editar">
+    {% csrf_token %}
+    <input type="hidden" name="id" value="{{ processo.id }}">
+
+    <label for="numero">Número do Processo:</label>
+    <input type="text" name="numero" id="numero" value="{{ processo.numero }}" required>
+
+    <label for="cliente">Cliente:</label>
+    <select name="cliente" id="cliente" required>
+      {% for cliente in clientes %}
+        <option value="{{ cliente.id }}" {% if processo.cliente.id == cliente.id %}selected{% endif %}>{{ cliente.nome }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="tipo">Tipo:</label>
+    <input type="text" name="tipo" id="tipo" value="{{ processo.tipo }}" required>
+
+    <label for="status">Status:</label>
+    <select name="status" id="status" required>
+      <option value="andamento" {% if processo.status == 'andamento' %}selected{% endif %}>Em andamento</option>
+      <option value="concluido" {% if processo.status == 'concluido' %}selected{% endif %}>Concluído</option>
+      <option value="arquivado" {% if processo.status == 'arquivado' %}selected{% endif %}>Arquivado</option>
+    </select>
+
+    <label for="descricao">Descrição:</label>
+    <textarea name="descricao" id="descricao" rows="4" required>{{ processo.descricao }}</textarea>
+
+    <label for="data_abertura">Data de Abertura:</label>
+    <input type="date" name="data_abertura" id="data_abertura" value="{{ processo.data_abertura|date:'Y-m-d' }}" required>
+
+    <button type="submit">Salvar Alterações</button>
+  </form>
+
+  <p style="text-align: center; margin-top: 1rem;">
+      <a href="{% url 'detalhar_processo' processo.id %}">Voltar para Detalhes</a>
+  </p>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Cadastro{% endblock %}
+
+{% block content %}
+  <h2 style="text-align: center;">Criar Conta</h2>
+
+  {% if messages %}
+      {% for message in messages %}
+          <p style="color:red; text-align: center;">{{ message }}</p>
+      {% endfor %}
+  {% endif %}
+
+  <form method="POST" class="form-register">
+      {% csrf_token %}
+      
+      <label for="username">Usuário:</label>
+      <input type="text" name="username" id="username" required>
+
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required>
+
+      <label for="senha">Senha:</label>
+      <input type="password" name="senha" id="senha" required>
+
+      <label for="confirmar_senha">Confirmar Senha:</label>
+      <input type="password" name="confirmar_senha" id="confirmar_senha" required>
+
+      <button type="submit">Cadastrar</button>
+  </form>
+
+  <p style="text-align: center; margin-top: 1rem;">
+      Já tem conta? <a href="{% url 'login' %}">Entrar</a>
+  </p>
+{% endblock %}

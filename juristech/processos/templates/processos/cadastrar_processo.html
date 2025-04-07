@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Processo</title>
+</head>
+<body>
+    <h2>Cadastro de Processo</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color: green;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <label>Número:</label><br>
+        <input type="text" name="numero"><br><br>
+
+        <label>Cliente:</label><br>
+        <select name="cliente">
+            {% for cliente in clientes %}
+                <option value="{{ cliente.id }}">{{ cliente.nome }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Tipo:</label><br>
+        <input type="text" name="tipo"><br><br>
+
+        <label>Status:</label><br>
+        <select name="status">
+            <option value="andamento">Em andamento</option>
+            <option value="concluido">Concluído</option>
+            <option value="arquivado">Arquivado</option>
+        </select><br><br>
+
+        <label>Descrição:</label><br>
+        <textarea name="descricao"></textarea><br><br>
+
+        <label>Data de abertura:</label><br>
+        <input type="date" name="data_abertura"><br><br>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <p><a href="{% url 'home' %}">Voltar para home</a></p>
+</body>
+</html>

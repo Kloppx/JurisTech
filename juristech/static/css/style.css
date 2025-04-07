@@ -1,0 +1,259 @@
+/* ================================
+   🌐 BASE GERAL
+================================ */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+main {
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* ================================
+   🧭 HEADER E NAVEGAÇÃO
+================================ */
+header {
+    background-color: #1e3a8a;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* ================================
+   📜 FOOTER
+================================ */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #1e3a8a;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* ================================
+   📝 FORMULÁRIOS GERAIS
+================================ */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+form input,
+form select,
+form textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+}
+
+button {
+    margin-top: 1.5rem;
+    padding: 0.6rem;
+    background-color: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+/* ================================
+   🔐 LOGIN
+================================ */
+.form-login {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.form-login input {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+/* ================================
+   🧾 REGISTRO
+================================ */
+.form-register {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.form-register input {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+/* ================================
+   ⚖️ PROCESSOS
+================================ */
+.processos-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.processos-table th, .processos-table td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+}
+
+.processos-table th {
+    background-color: #2563eb;
+    color: white;
+}
+
+.processos-table td a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.processos-table td a:hover {
+    text-decoration: underline;
+}
+
+.processos-table td {
+    background-color: #f9f9f9;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 600px) {
+    .processos-table th, .processos-table td {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+}
+
+/* ================================
+   ⚖️ DETALHES DO PROCESSO
+================================ */
+.detalhes-processo {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.detalhes-processo p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.detalhes-processo strong {
+    font-weight: bold;
+}
+
+.detalhes-processo .btn-editar, .detalhes-processo .btn-voltar {
+    display: inline-block;
+    padding: 0.8rem 1.2rem;
+    background-color: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.detalhes-processo .btn-editar:hover, .detalhes-processo .btn-voltar:hover {
+    background-color: #1d4ed8;
+}
+
+
+/* ================================
+   ⚖️ EDITAR PROCESSO
+================================ */
+.form-editar {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.form-editar label {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.form-editar input,
+.form-editar textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-editar button {
+    margin-top: 1.5rem;
+    padding: 0.6rem;
+    background-color: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-editar button:hover {
+    background-color: #1d4ed8;
+}
