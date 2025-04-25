@@ -19,3 +19,8 @@ def cadastrar_cliente(request):
             return redirect('cadastrar_cliente')
         
     return render(request, 'clientes/cadastrar_cliente.html')
+
+@login_required
+def listar_clientes(request):
+    clientes = Cliente.objects.all()
+    return render(request, 'clientes/listar_cliente.html', {'clientes': clientes})
