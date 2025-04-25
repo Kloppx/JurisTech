@@ -3,8 +3,40 @@
 {% block title %}Página Inicial{% endblock %}
 
 {% block content %}
-    <h2>Bem-vindo, {{ user.username }}!</h2>
-    <p>Esse é o sistema de gestão de processos da Juristech.</p>
-    <p><a href="{% url 'logout' %}">Sair</a></p>
-    <p><a href="{% url 'listar_processos' %}">Ver Processos</a></p>
+<div class="container py-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Bem-vindo(a), {{ user.username }}!</h2>
+        <p class="text-muted">Esse é o sistema de gestão de processos da **Juristech**.</p>
+    </div>
+
+    <div class="row g-4">
+        <!-- Resumo de Processos -->
+        <div class="col-md-6">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <i class="fas fa-balance-scale fa-3x text-primary mb-3"></i>
+                    <h4 class="card-title">Processos</h4>
+                    <p class="card-text">{{ processos_count }} Processos cadastrados</p>
+                    <a href="{% url 'listar_processos' %}" class="btn btn-outline-primary">Ver Processos</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resumo de Clientes -->
+        <div class="col-md-6">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <i class="fas fa-users fa-3x text-success mb-3"></i>
+                    <h4 class="card-title">Clientes</h4>
+                    <p class="card-text">{{ clientes_count }} Clientes cadastrados</p>
+                    <a href="{% url 'listar_cliente' %}" class="btn btn-outline-success">Ver Clientes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="{% url 'logout' %}" class="btn btn-danger btn-sm">Sair</a>
+    </div>
+</div>
 {% endblock %}
