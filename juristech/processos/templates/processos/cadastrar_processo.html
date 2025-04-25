@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Cadastrar Processo</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Lista de Processos{% endblock %}
+
+{% block content %}
+
+<main class="form-cadastro">
     <h2>Cadastro de Processo</h2>
 
     {% if messages %}
@@ -13,37 +13,47 @@
         {% endfor %}
     {% endif %}
 
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <label>Número:</label><br>
-        <input type="text" name="numero"><br><br>
 
-        <label>Cliente:</label><br>
-        <select name="cliente">
+        <label>Número:</label>
+        <input type="text" name="numero" required>
+
+        <label>Cliente:</label>
+        <select name="cliente" required>
             {% for cliente in clientes %}
                 <option value="{{ cliente.id }}">{{ cliente.nome }}</option>
             {% endfor %}
-        </select><br><br>
+        </select>
 
-        <label>Tipo:</label><br>
-        <input type="text" name="tipo"><br><br>
+        <label>Tipo:</label>
+        <input type="text" name="tipo" required>
 
-        <label>Status:</label><br>
-        <select name="status">
+        <label>Status:</label>
+        <select name="status" required>
             <option value="andamento">Em andamento</option>
             <option value="concluido">Concluído</option>
             <option value="arquivado">Arquivado</option>
-        </select><br><br>
+        </select>
 
-        <label>Descrição:</label><br>
-        <textarea name="descricao"></textarea><br><br>
+        <label>Descrição:</label>
+        <textarea name="descricao"></textarea>
 
-        <label>Data de abertura:</label><br>
-        <input type="date" name="data_abertura"><br><br>
+        <label>Data de abertura:</label>
+        <input type="date" name="data_abertura" required>
+
+        <label>Documento (opcional):</label>
+        <input type="file" name="arquivo">
+
+        <label>Descrição do documento:</label>
+        <input type="text" name="descricao_doc">
 
         <button type="submit">Cadastrar</button>
     </form>
 
-    <p><a href="{% url 'home' %}">Voltar para home</a></p>
+    <a href="{% url 'home' %}">← Voltar para home</a>
+</main>
+
 </body>
 </html>
+{% endblock %}

@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Cadastrar Cliente</title>
-</head>
+{% extends 'base.html' %}
+
+{% block title %}Lista de Processos{% endblock %}
+
+{% block content %}
 <body>
     <h2>Cadastro de Cliente</h2>
 
@@ -33,3 +32,4 @@
     <p><a href="{% url 'home' %}">Voltar para home</a></p>
 </body>
 </html>
+{% endblock %}

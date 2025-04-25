@@ -257,3 +257,19 @@ button:hover {
 .form-editar button:hover {
     background-color: #1d4ed8;
 }
+
+.btn-cadastrar {
+    display: inline-block;
+    padding: 0.7rem 1.2rem;
+    background-color: #2563eb;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cadastrar:hover {
+    background-color: #1d4ed8;
+}
+

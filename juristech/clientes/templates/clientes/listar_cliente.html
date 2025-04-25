@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container py-4">
-  <h2>Clientes</h2>
+  <h2 style="text-align: center;">Clientes</h2>
+
+  <div style="text-align: center; margin-bottom: 1.5rem;">
+    <a href="{% url 'cadastrar_cliente' %}" class="btn-cadastrar">+ Cadastrar Novo Cliente</a>
+  </div>
+
   <table class="table table-striped mt-3">
     <thead>
       <tr>
