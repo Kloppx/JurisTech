@@ -27,7 +27,7 @@
             <td>{{ processo.data_abertura|date:"d/m/Y" }}</td>
             <td>
               <a href="{% url 'detalhar_processo' processo.id %}">Detalhar</a>
-              <a href="{% url 'cadastrar_processo' processo.id %}">Cadastrar</a>
+              <a href="{% url 'editar_processo' processo.id %}">Editar</a>
             </td>
           </tr>
         {% endfor %}
