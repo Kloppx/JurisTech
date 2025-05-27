@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
+from processos.models import Processo
 
 @login_required(login_url='login')
 def cadastrar_processo(request):
@@ -70,7 +71,12 @@ def detalhar_processo(request, processo_id):
 
 @login_required(login_url='login')
 def home_view(request):
-    return render(request, 'home.html')
+    context = {
+        'processos_count': Processo.objects.count(),
+        'clientes_count': Cliente.objects.count(),
+        'documentos_count': Documento.objects.count(),
+    }
+    return render(request, 'home.html', context)
 
 def editar_processo(request, processo_id):
     processo = get_object_or_404(Processo, id=processo_id)
