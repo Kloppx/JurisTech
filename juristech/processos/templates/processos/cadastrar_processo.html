@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <title>Cadastrar Processo</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">  <!-- Ajuste esse caminho -->
 </head>
 <body>
+
+<main>
     <h2>Cadastro de Processo</h2>
 
     {% if messages %}
@@ -13,37 +17,44 @@
         {% endfor %}
     {% endif %}
 
-    <form method="POST">
+    <form method="POST" class="form-editar">
         {% csrf_token %}
-        <label>Número:</label><br>
-        <input type="text" name="numero"><br><br>
+        
+        <label for="numero">Número:</label>
+        <input type="text" name="numero" id="numero">
 
-        <label>Cliente:</label><br>
-        <select name="cliente">
+        <label for="cliente">Cliente:</label>
+        <select name="cliente" id="cliente">
             {% for cliente in clientes %}
                 <option value="{{ cliente.id }}">{{ cliente.nome }}</option>
             {% endfor %}
-        </select><br><br>
+        </select>
 
-        <label>Tipo:</label><br>
-        <input type="text" name="tipo"><br><br>
+        <label for="tipo">Tipo:</label>
+        <input type="text" name="tipo" id="tipo">
 
-        <label>Status:</label><br>
-        <select name="status">
+        <label for="status">Status:</label>
+        <select name="status" id="status">
             <option value="andamento">Em andamento</option>
             <option value="concluido">Concluído</option>
             <option value="arquivado">Arquivado</option>
-        </select><br><br>
+        </select>
 
-        <label>Descrição:</label><br>
-        <textarea name="descricao"></textarea><br><br>
+        <label for="descricao">Descrição:</label>
+        <textarea name="descricao" id="descricao"></textarea>
 
-        <label>Data de abertura:</label><br>
-        <input type="date" name="data_abertura"><br><br>
+        <label for="data_abertura">Data de abertura:</label>
+        <input type="date" name="data_abertura" id="data_abertura">
 
         <button type="submit">Cadastrar</button>
     </form>
 
-    <p><a href="{% url 'home' %}">Voltar para home</a></p>
+    <p><a href="{% url 'home' %}">← Voltar para home</a></p>
+</main>
+
+<footer>
+    <p>&copy; {{ now|date:"Y" }} Sistema de Advocacia</p>
+</footer>
+
 </body>
 </html>
